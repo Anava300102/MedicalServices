@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {ApiMedical} from '../../../Data/sources/remote/api/ApiMedical';
 
 const RegisterViewModel = () => {
 
@@ -15,8 +16,18 @@ const RegisterViewModel = () => {
         setValues({...values, [property]: value})
     }
 
-    const register = () => {
-        console.log(JSON.stringify(values));
+    const register = async () => {
+        try {
+            
+            const response = await ApiMedical.post('/users/create', values);
+            console.log('RESPONSE: ' + JSON.stringify(response));
+
+
+        } catch (error) {
+            console.log('ERROR: ' + error);
+            
+        }
+        
     }
 
     return {
