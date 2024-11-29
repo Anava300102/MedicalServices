@@ -1,5 +1,10 @@
 import React, {useState} from 'react'
 import {ApiMedical} from '../../../Data/sources/remote/api/ApiMedical';
+import { RegisterAuthUseCase } from '../../../Domain/useCases/auth/RegisterAuth';
+import { RegisterAuthUseCase } from '../../../Domain/useCases/auth/RegisterAuth';
+
+
+
 
 const RegisterViewModel = () => {
 
@@ -17,16 +22,9 @@ const RegisterViewModel = () => {
     }
 
     const register = async () => {
-        try {
-            
-            const response = await ApiMedical.post('/users/create', values);
-            console.log('RESPONSE: ' + JSON.stringify(response));
-
-
-        } catch (error) {
-            console.log('ERROR: ' + error);
-            
-        }
+        const { result, error } = await RegisterAuthUseCase(values);
+        console.log('RESULT: ' + JSON.stringify(result));
+        console.log('ERROR: ' + error);
         
     }
 
