@@ -1,5 +1,6 @@
 export interface ResponseAPIDelivery {
     success: boolean;
     message: string;
-    data:    ant;
+    data?:    any;
+    error?:    any;
 }

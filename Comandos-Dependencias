@@ -1,0 +1,3 @@
+{Comandos para dependencias al clonar el repositorio:}
+ 1. npm install
+ 2. npm install typescript @types/react @types/react-native
